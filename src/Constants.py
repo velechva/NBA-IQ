@@ -1,6 +1,6 @@
 # Season: NNNN-NN (eg. 1995-96)
 
-teams = {
+teamIdentifiers = {
     "Atlanta Hawks": 1610612737,
     "Boston Celtics": 1610612738,
     "Brooklyn Nets": 1610612751,
@@ -53,3 +53,11 @@ years = [
 ]
 
 leagueID = 00
+
+def getYears():
+    return years
+
+def getTeamID(name):
+    return teamIdentifiers[name]
+
+years = getYears()
