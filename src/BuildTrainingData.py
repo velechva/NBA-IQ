@@ -5,10 +5,10 @@ from Constants import *
 
 import json
 
-def boxScoreBreakdown(date, teamData):
+def boxScoreBreakdown(date, teamData, option):
     print("Analyzing Data for: " + date)
 
-    boxScore = Req.get(URL.boxScoreBreakdown(date))
+    boxScore = Req.get(URL.boxScoreBreakdown(str(date)))
 
     for game in boxScore['results']:
         gameID = game['GameID']
@@ -36,8 +36,26 @@ def boxScoreBreakdown(date, teamData):
         else:
             yData = [0, 1]
 
-        IOUtils.appendTrainingData(xData, yData)
+        if (option == 'training'):
+            IOUtils.appendTrainingData(xData, yData)
+        if (option == 'testing'):
+            IOUtils.appendTestingData(xData, yData)
+
+def loadScoreDataByMonth(year, month, option):
+    dates = []
+
+    for i in range(1, 28):
+        if i < 10:
+            date = "0" + str(i)
+        else:
+            date = str(i)
+
+        dates.append(str(year + month + date))
+
+    for date in dates:
+        boxScoreBreakdown(date, teamData, option)
 
 teamData = IOUtils.extractTeamDataFromFile()
 
-boxScoreBreakdown("20161227", teamData)
+loadScoreDataByMonth('2016', '11', 'training')
+loadScoreDataByMonth('2016', '12', 'testing')
