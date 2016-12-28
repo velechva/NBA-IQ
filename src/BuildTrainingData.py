@@ -1,27 +1,43 @@
 import Req
+import URL
+import IOUtils
 from Constants import *
 
 import json
 
-def boxscoreBreakdown(date):
-    url = "http://stats.nba.com/js/data/widgets/boxscore_breakdown_{}.json".format(date)
+def boxScoreBreakdown(date, teamData):
+    print("Analyzing Data for: " + date)
 
-    res = Req.get(url)
+    boxScore = Req.get(URL.boxScoreBreakdown(date))
 
-    for game in res['results']:
+    for game in boxScore['results']:
         gameID = game['GameID']
 
+        boxScoreSummary = Req.get(URL.boxScoreSummary(gameID))
+
         homeTeam = game['HomeTeam']['teamName']
-        awayTeam = game['AwayTeam']['teamName']
+        awayTeam = game['VisitorTeam']['teamName']
 
         homeID = getTeamID(homeTeam)
         awayID = getTeamID(awayTeam)
 
-        homeData = extractTeamDataFromFile(homeTeam)
-        awayData = extractTeamDataFromFile(awayTeam)
+        homeData = teamData[homeTeam]
+        awayData = teamData[awayTeam]
 
-def extractTeamDataFromFile(teamName):
-    with open('../Data/Teams.JSON') as infile:
-        data = json.load(infile)
+        homeScore = boxScoreSummary['resultSets'][5]['rowSet'][0][22]
+        awayScore = boxScoreSummary['resultSets'][5]['rowSet'][1][22]
 
-        return data[teamName]
+        print('{} @ {} : {} v. {} Final'.format(awayTeam, homeTeam, homeScore, awayScore))
+
+        xData = homeData + awayData
+
+        if (homeScore > awayScore):
+            yData = [1, 0]
+        else:
+            yData = [0, 1]
+
+        IOUtils.appendTrainingData(xData, yData)
+
+teamData = IOUtils.extractTeamDataFromFile()
+
+boxScoreBreakdown("20161227", teamData)

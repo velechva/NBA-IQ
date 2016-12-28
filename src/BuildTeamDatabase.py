@@ -2,6 +2,7 @@ import json
 
 from GetTeamData import getTeamData
 from Constants import *
+import IOUtils
 
 results = {}
 for team in teamIdentifiers:
@@ -10,7 +11,4 @@ for team in teamIdentifiers:
 	resultData = getTeamData(team)
 	results[team] = resultData
 
-with open('../Data/Teams.JSON', 'w') as outfile:
-	print("Writing team data to file")
-	
-	json.dump(results, outfile)
+IOUtils.saveTeamDataToFile(results)

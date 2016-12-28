@@ -1,6 +1,9 @@
-import GetTeamData
+import Req
 from Constants import *
 
-result = GetTeamData.getTeamData("Utah Jazz")
+import json
 
-print(result)
+with open('../Data/Teams.JSON') as infile:
+    data = json.load(infile)
+
+    print(data["Toronto Raptors"])

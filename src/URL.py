@@ -1,5 +1,4 @@
 import json
-from pprint import pprint
 
 with open('../data/endpoints.JSON') as infile: 
     URLs = json.load(infile)
@@ -15,3 +14,9 @@ def commonTeamRoster(teamID):
 
 def playerData(playerID, year, season):
 	return URLs['playerData'].format(playerID, year, season)
+
+def boxScoreBreakdown(date):
+    return URLs['boxScoreBreakdown'].format(date)
+
+def boxScoreSummary(gameID):
+    return URLs['boxScoreSummary'].format(gameID)
