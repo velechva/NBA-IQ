@@ -1,81 +1,81 @@
 import json
 
-def extractTeamDataFromFile():
-    with open('../Data/Teams.JSON') as infile:
+def extractTeamdataFromFile():
+    with open('../data/Teams.JSON') as infile:
         data = json.load(infile)
 
         return data
 
-def saveTeamDataToFile(results):
-    with open('../Data/Teams.JSON', 'w') as outfile:
+def saveTeamdataToFile(results):
+    with open('../data/Teams.JSON', 'w') as outfile:
         print("Writing team data to file")
 
         json.dump(results, outfile)
 
-def appendTrainingData(xData, yData):
-    print('Appending Training Data')
+def appendTrainingdata(xdata, ydata):
+    print('Appending Training data')
 
-    with open('../Data/TrainX.JSON', 'r') as xFile:
+    with open('../data/TrainX.JSON', 'r') as xFile:
         xJSON = json.load(xFile)
-        xJSON.append(xData)
+        xJSON.append(xdata)
 
-    with open('../Data/TrainX.JSON', 'w') as xFile:
+    with open('../data/TrainX.JSON', 'w') as xFile:
         json.dump(xJSON, xFile)
 
-    with open('../Data/TrainY.JSON', 'r') as yFile:
+    with open('../data/TrainY.JSON', 'r') as yFile:
         yJSON = json.load(yFile)
-        yJSON.append(yData)
+        yJSON.append(ydata)
 
-    with open('../Data/TrainY.JSON', 'w') as yFile:
+    with open('../data/TrainY.JSON', 'w') as yFile:
         json.dump(yJSON, yFile)
 
-def appendTestingData(xData, yData):
-    print('Appending Testing Data')
+def appendTestingdata(xdata, ydata):
+    print('Appending Testing data')
 
-    with open('../Data/TestX.JSON', 'r') as xFile:
+    with open('../data/TestX.JSON', 'r') as xFile:
         xJSON = json.load(xFile)
-        xJSON.append(xData)
+        xJSON.append(xdata)
 
-    with open('../Data/TestX.JSON', 'w') as xFile:
+    with open('../data/TestX.JSON', 'w') as xFile:
         json.dump(xJSON, xFile)
 
-    with open('../Data/TestY.JSON', 'r') as yFile:
+    with open('../data/TestY.JSON', 'r') as yFile:
         yJSON = json.load(yFile)
-        yJSON.append(yData)
+        yJSON.append(ydata)
 
-    with open('../Data/TestY.JSON', 'w') as yFile:
+    with open('../data/TestY.JSON', 'w') as yFile:
         json.dump(yJSON, yFile)
 
-def resetDataFiles():
-    with open('../Data/TrainX.JSON', 'w') as file:
+def resetdataFiles():
+    with open('../data/TrainX.JSON', 'w') as file:
         obj = []
         json.dump(obj, file)
 
-    with open('../Data/TrainY.JSON', 'w') as file:
+    with open('../data/TrainY.JSON', 'w') as file:
         obj = []
         json.dump(obj, file)
 
-    with open('../Data/TestX.JSON', 'w') as file:
+    with open('../data/TestX.JSON', 'w') as file:
         obj = []
         json.dump(obj, file)
 
-    with open('../Data/TestY.JSON', 'w') as file:
+    with open('../data/TestY.JSON', 'w') as file:
         obj = []
         json.dump(obj, file)
 
-def loadData():
-    print('Loading Training Data')
+def loaddata():
+    print('Loading Training data')
 
-    with open('../Data/TrainX.JSON') as xFile:
+    with open('../data/TrainX.JSON') as xFile:
         trainX = json.load(xFile)
 
-    with open('../Data/TrainY.JSON') as yFile:
+    with open('../data/TrainY.JSON') as yFile:
         trainY = json.load(yFile)
 
-    with open('../Data/TestX.JSON') as xFile2:
+    with open('../data/TestX.JSON') as xFile2:
         testX = json.load(xFile2)
 
-    with open('../Data/TestY.JSON') as yFile2:
+    with open('../data/TestY.JSON') as yFile2:
         testY = json.load(yFile2)
 
     return trainX, trainY, testX, testY
