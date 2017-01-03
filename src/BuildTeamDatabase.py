@@ -6,9 +6,9 @@ import IOUtils
 
 results = {}
 for team in teamIdentifiers:
-	print("Fetching data for: " + team)
+    print("Fetching data for: " + team)
 
-	resultData = getTeamData(team)
-	results[team] = resultData
+    resultData = getTeamData(team)
+    results[team] = resultData
 
 IOUtils.saveTeamDataToFile(results)
