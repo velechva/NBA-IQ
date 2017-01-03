@@ -63,7 +63,7 @@ def resetdataFiles():
         obj = []
         json.dump(obj, file)
 
-def loaddata():
+def loadData():
     print('Loading Training data')
 
     with open('../data/TrainX.JSON') as xFile:
