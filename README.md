@@ -32,3 +32,5 @@ import NBAIQ
 
 trainNet(x)
 ```
+
+Prefetched data files can be downloaded and used directly from	[this Google Drive folder](https://drive.google.com/drive/folders/0Bxydx5oFW_EqYlVYUkE1UjdCek0?usp=sharing)
