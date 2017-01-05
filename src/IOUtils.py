@@ -1,18 +1,18 @@
 import json
 
-def extractTeamdataFromFile():
+def extractTeamDataFromFile():
     with open('../data/Teams.JSON') as infile:
         data = json.load(infile)
 
         return data
 
-def saveTeamdataToFile(results):
+def saveTeamDataToFile(results):
     with open('../data/Teams.JSON', 'w') as outfile:
         print("Writing team data to file")
 
         json.dump(results, outfile)
 
-def appendTrainingdata(xdata, ydata):
+def appendTrainingData(xdata, ydata):
     print('Appending Training data')
 
     with open('../data/TrainX.JSON', 'r') as xFile:
@@ -29,7 +29,7 @@ def appendTrainingdata(xdata, ydata):
     with open('../data/TrainY.JSON', 'w') as yFile:
         json.dump(yJSON, yFile)
 
-def appendTestingdata(xdata, ydata):
+def appendTestingData(xdata, ydata):
     print('Appending Testing data')
 
     with open('../data/TestX.JSON', 'r') as xFile:
@@ -46,7 +46,7 @@ def appendTestingdata(xdata, ydata):
     with open('../data/TestY.JSON', 'w') as yFile:
         json.dump(yJSON, yFile)
 
-def resetdataFiles():
+def resetDataFiles():
     with open('../data/TrainX.JSON', 'w') as file:
         obj = []
         json.dump(obj, file)
@@ -62,6 +62,8 @@ def resetdataFiles():
     with open('../data/TestY.JSON', 'w') as file:
         obj = []
         json.dump(obj, file)
+
+    print("IOUtils: Data Files reset")
 
 def loadData():
     print('Loading Training data')

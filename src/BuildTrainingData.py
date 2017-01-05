@@ -41,7 +41,7 @@ def boxScoreBreakdown(date, teamData, option):
         if (option == 'testing'):
             IOUtils.appendTestingData(xData, yData)
 
-def loadScoreDataByMonth(year, month, option):
+def loadScoreDataByMonth(year, month, option, teamData):
     dates = []
 
     for i in range(1, 28):
@@ -55,7 +55,9 @@ def loadScoreDataByMonth(year, month, option):
     for date in dates:
         boxScoreBreakdown(date, teamData, option)
 
-teamData = IOUtils.extractTeamDataFromFile()
+def buildTrainingData():
+    teamData = IOUtils.extractTeamDataFromFile()
 
-loadScoreDataByMonth('2016', '11', 'training')
-loadScoreDataByMonth('2016', '12', 'testing')
+    loadScoreDataByMonth('2016', '11', 'training', teamData)
+    loadScoreDataByMonth('2016', '12', 'training', teamData)
+    loadScoreDataByMonth('2017', '01', 'testing', teamData)

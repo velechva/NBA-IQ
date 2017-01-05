@@ -43,21 +43,11 @@ seasonType = {
 }
 
 years = [
-    "2010-11",
-    "2011-12",
-    "2012-13",
-    "2013-14",
-    "2014-15",
     "2015-16",
     "2016-17"
 ]
 
 leagueID = 00
 
-def getYears():
-    return years
-
 def getTeamID(name):
     return teamIdentifiers[name]
-
-years = getYears()

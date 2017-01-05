@@ -5,11 +5,12 @@ import numpy as np
 
 trainX, trainY, testX, testY = loadData()
 
-nodeCount_1 = 154
-nodeCount_2 = 154
+nodeCount_1 = 10
+nodeCount_2 = 10
+nodeCount_3 = 10
 
-epochCount = 2000
-batchSize = 154
+epochCount = 1000
+batchSize = 423
 classCount = 2
 
 x = tf.placeholder('float')
@@ -23,22 +24,25 @@ hiddenLayerTwo = {'f_num': nodeCount_2,
                   'weight': tf.Variable(tf.random_normal([nodeCount_1, nodeCount_2])),
                   'bias': tf.Variable(tf.random_normal([nodeCount_2]))}
 
+hiddenLayerThree = {'f_num': nodeCount_3,
+                  'weight': tf.Variable(tf.random_normal([nodeCount_2, nodeCount_3])),
+                  'bias': tf.Variable(tf.random_normal([nodeCount_3]))}
+
 outputLayer = {'f_num': None,
-                'weight': tf.Variable(tf.random_normal([nodeCount_2, classCount])),
+                'weight': tf.Variable(tf.random_normal([nodeCount_3, classCount])),
                 'bias': tf.Variable(tf.random_normal([classCount]))}
 
 def neuralNetworkModel(data):
-
-    print('TrainX: ' + str(len(trainX)))
-    print('TestX: ' + str(len(testX)))
-
     l1 = tf.add(tf.matmul(data, hiddenLayerOne['weight']), hiddenLayerOne['bias'])
     l1 = tf.nn.relu(l1)
 
     l2 = tf.add(tf.matmul(l1, hiddenLayerTwo['weight']), hiddenLayerTwo['bias'])
     l2 = tf.nn.relu(l2)
 
-    output = tf.matmul(l2, outputLayer['weight'] + outputLayer['bias'])
+    l3 = tf.add(tf.matmul(l2, hiddenLayerThree['weight']), hiddenLayerThree['bias'])
+    l3 = tf.nn.relu(l3)
+
+    output = tf.matmul(l3, outputLayer['weight'] + outputLayer['bias'])
     
     return output
 

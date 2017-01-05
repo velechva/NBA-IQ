@@ -20,3 +20,6 @@ def boxScoreBreakdown(date):
 
 def boxScoreSummary(gameID):
     return URLs['boxScoreSummary'].format(gameID)
+
+def teamPlayerDashboard(year, season, teamID):
+    return URLs['teamPlayerDashboard'].format(year, season, teamID)

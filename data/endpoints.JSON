@@ -4,5 +4,6 @@
 	"teamInfoCommon": "http://stats.nba.com/stats/teaminfocommon?LeagueID=00&Season={}&SeasonType={}&TeamID={}",
 	"boxScoreBreakdown": "http://stats.nba.com/js/data/widgets/boxscore_breakdown_{}.json",
 	"boxScoreSummary": "http://stats.nba.com/stats/boxscoresummaryv2/?GameID={}",
-	"playerData": "http://stats.nba.com/stats/playerdashboardbyyearoveryear?DateFrom=&DateTo=&GameSegment=&LastNGames=0&LeagueID=00&Location=&MeasureType=Base&Month=0&OpponentTeamID=0&Outcome=&PORound=0&PaceAdjust=N&PerMode=PerGame&Period=0&PlayerID={}&PlusMinus=N&Rank=N&Season={}&SeasonSegment=&SeasonType={}&ShotClockRange=&Split=yoy&VsConference=&VsDivision="
+	"playerData": "http://stats.nba.com/stats/playerdashboardbyyearoveryear?DateFrom=&DateTo=&GameSegment=&LastNGames=0&LeagueID=00&Location=&MeasureType=Base&Month=0&OpponentTeamID=0&Outcome=&PORound=0&PaceAdjust=N&PerMode=PerGame&Period=0&PlayerID={}&PlusMinus=N&Rank=N&Season={}&SeasonSegment=&SeasonType={}&ShotClockRange=&Split=yoy&VsConference=&VsDivision=",
+	"teamPlayerDashboard": "http://stats.nba.com/stats/teamplayerdashboard?DateFrom=&DateTo=&GameSegment=&LastNGames=0&LeagueID=00&Location=&MeasureType=Base&Month=0&OpponentTeamID=0&Outcome=&PORound=0&PaceAdjust=N&PerMode=PerGame&Period=0&PlusMinus=N&Rank=N&Season={}&SeasonSegment=&SeasonType={}&TeamId={}&VsConference=&VsDivision="
 }
